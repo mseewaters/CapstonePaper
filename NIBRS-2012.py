@@ -1,8 +1,12 @@
-# Script to isolate abduction incidents and vitim <20 from raw NIBRS data
-# Fields are separated into discrete columns to support further processing in R
+# -*- coding: utf-8 -*-
+# <nbformat>3.0</nbformat>
+
+# <codecell>
 
 data = open("D:/0 Stern MSBA/0.2 Capstone/ICPSR_35036/DS0001/35036-0001-Data.txt/da35036-0001.txt","r")
 newfile = open("D:/0 Stern MSBA/0.2 Capstone/ICPSR_35036/DS0001/35036-0001-Data.txt/data_childabduction.txt","w")
+
+# <codecell>
 
 lines=0
 count=0
@@ -16,8 +20,12 @@ for line in data:
 print count    
 print lines
 
+# <codecell>
+
 data.close()
 newfile.close()
+
+# <codecell>
 
 data = open("D:/0 Stern MSBA/0.2 Capstone/ICPSR_35036/DS0001/35036-0001-Data.txt/data_childabduction.txt","r")
 
@@ -38,7 +46,7 @@ for i in range(1,10):
     
 data.close()
 
-
+# <codecell>
 
 data = open("D:/0 Stern MSBA/0.2 Capstone/ICPSR_35036/DS0001/35036-0001-Data.txt/data_childabduction.txt","r")
 
@@ -195,7 +203,7 @@ print V40181[1:5]
 data.close()
 
 
-
+# <codecell>
 
 # For all child crime - new fields 
 
@@ -208,7 +216,7 @@ merge = zip(SEGMENT, STATE, ORI, INCNUM, INCDATE, B1006, B1007, B1009, B1010, B1
 
 print merge[1]
 
-
+# <codecell>
 
 # create year only file
 
@@ -223,7 +231,7 @@ with open("D:/0 Stern MSBA/0.2 Capstone/ICPSR_35036/DS0001/35036-0001-Data.txt/d
         cw.writerow(list(merge[val]))
     
 
-
+# <codecell>
 
 # append to common file
 import csv
@@ -236,7 +244,7 @@ with open("D:/0 Stern MSBA/0.2 Capstone/DS0001/data_final.csv",'a') as output:
     for val in range(end):
         cw.writerow(list(merge[val]))
 
-
+# <codecell>
 
 # Validation that all years are included in final file
 
@@ -249,6 +257,6 @@ print count
 
 data.close()
 
-
+# <codecell>
 
 

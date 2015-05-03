@@ -65,8 +65,10 @@ shinyServer(function(input, output, clientData, session) {
     rowsel <- input$vicage1 
     if (is.na(rowsel))
       {result="Enter values to assess risk"} else
-      {pr.rf <- predict(model.rf, type="prob",shell[1,])[,2]*100
-      result <- paste(pr.rf, "%")}
+        if (is.na(shell[1,6]))
+        {result="Mid-Atlantic states (NY,NJ,PA) cannot be predicted due to limited data"} else
+          {pr.rf <- predict(model.rf, type="prob",shell[1,])[,2]*100
+          result <- paste(pr.rf, "%")}
     return(result)
     })
     

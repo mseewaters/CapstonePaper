@@ -83,10 +83,6 @@ shinyUI(fluidPage(theme = "bootstrap.css", tags$style("body {background-color: S
            img(src="reportmap.png", height=400)
            
            )
-  ),
-  
-  fluidRow(
-    hr(), p("For validating during development, not art of app"),tableOutput('df')
   )
 ))
 
